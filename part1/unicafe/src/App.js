@@ -30,6 +30,9 @@ const App = () => {
   }
 
 
+  const total = good+neutral+bad
+  const average = (good - bad) / total
+  const positivePercentage = (good / total) * 100
 
 
   return (
@@ -43,6 +46,10 @@ const App = () => {
       good: {good}  <br />
       neutral: {neutral} <br />
       bad: {bad} <br />
+      <br />
+      total: {total} <br />
+      average: {average} <br />
+      positive: {positivePercentage}% <br />
     </>
   )
 }
