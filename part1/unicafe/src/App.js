@@ -10,9 +10,24 @@ const Button = ({ handleClick, text }) => (
 
 const StatisticsLine = ({ text, value }) => {
 
-  <>
-    {text}: {value}
-  </>
+
+
+  if (text === "positive") {
+    return (
+
+      <>
+        {text}: {value} % <br />
+      </>
+    )
+
+
+  } else {
+    return (<>
+      {text}: {value} <br />
+    </>)
+
+  }
+
 
 }
 
@@ -59,13 +74,6 @@ const Statistics = ({ good, bad, neutral }) => {
         <StatisticsLine text="positive" value={positivePercentage} />
 
 
-        good: {good}  <br />
-        neutral: {neutral} <br />
-        bad: {bad} <br />
-        <br />
-        total: {total} <br />
-        average: {average} <br />
-        positive: {positivePercentage} % <br />
       </>
     )
   }
