@@ -17,6 +17,8 @@ const Anecdotes = ({anecdotes, votes}) => {
 }
 
 
+
+
 const App = () => {
   const anecdotes = [
     'If it hurts, do it more often.',
@@ -33,7 +35,8 @@ const App = () => {
   const [vote, setVote] = useState(Array(anecdotes.length).fill(0))
 
 
-
+  //const indexOfMostVoted = vote.indexOf(Math.max(vote))
+  const indexOfMostVoted = vote.indexOf(Math.max(...vote))
 
 
   const handleNextAnecdote = () => {
@@ -54,6 +57,11 @@ const App = () => {
       <br />
       <Button handleClick={handleVote} text='Vote' />
       <Button handleClick={handleNextAnecdote} text='Next Anecdote' />
+      <br />
+      <br />
+      Anecdote with most votes:
+      <br />
+      <Anecdotes anecdotes={anecdotes[indexOfMostVoted]} votes={vote[indexOfMostVoted]}/>
     </div>
   )
 }
