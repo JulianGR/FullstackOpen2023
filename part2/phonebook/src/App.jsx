@@ -8,14 +8,26 @@ const App = () => {
 
 
 
+  function doesItAlreadyContainsTheName(personsObject, newPerson) {
+    return personsObject.some(i => i.name === newPerson.name);
+  }
+
+
   const addPerson = (event) => {
     event.preventDefault()
+
     const personObject = {
       name: newName
     }
-    setPersons(persons.concat(personObject))
-    setNewName('')
 
+
+    if (doesItAlreadyContainsTheName(persons, personObject)) {
+      return alert(`${personObject.name} is already added to the book`)
+    } else {
+      setPersons(persons.concat(personObject))
+    }
+
+    setNewName('')
   }
 
   const handleNameChange = (event) => {
@@ -30,7 +42,7 @@ const App = () => {
       <form onSubmit={addPerson}>
         <div>
           name: <input value={newName}
-          onChange={handleNameChange}/>
+            onChange={handleNameChange} />
         </div>
         <div>
           <button type="submit">add</button>
