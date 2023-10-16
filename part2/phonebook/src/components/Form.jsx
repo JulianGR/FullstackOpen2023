@@ -1,7 +1,9 @@
-const Form = () => {
+/* eslint-disable react/prop-types */
+const Form = ({addPerson, newName, handleNameChange, newPhoneNumber, handlePhoneChange}) => {
 
 return(
-
+<div>
+<h2>Form</h2>
  <form onSubmit={addPerson}>
         <div>
           name: <input value={newName}
@@ -15,7 +17,7 @@ return(
           <button type="submit">add</button>
         </div>
       </form>
-
+</div>
 
 )
 

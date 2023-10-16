@@ -1,4 +1,9 @@
+/* eslint-disable react/prop-types */
 import { useState } from 'react'
+import Filter from './components/Filter'
+import Form from './components/Form'
+import List from './components/List'
+
 
 const App = () => {
   const [persons, setPersons] = useState([
@@ -62,42 +67,11 @@ const App = () => {
     <div>
       <h1>Phonebook</h1>
 
-      <h2>Filter</h2>
-      <div>
-        name to filter with: <input value={nameToFilter}
-          onChange={handleNameFilter} />
-      </div>
+      <Filter nameToFilter={nameToFilter} handleNameFilter={handleNameFilter} />
 
+      <Form addPerson={addPerson} newName={newName} handleNameChange={handleNameChange} newPhoneNumber={newPhoneNumber} handlePhoneChange={handlePhoneChange} />
 
-
-
-
-      <h2>Form</h2>
-      <form onSubmit={addPerson}>
-        <div>
-          name: <input value={newName}
-            onChange={handleNameChange} />
-        </div>
-        <div>
-          phone number: <input value={newPhoneNumber}
-            onChange={handlePhoneChange} />
-        </div>
-        <div>
-          <button type="submit">add</button>
-        </div>
-      </form>
-
-
-
-      <h2>Numbers</h2>
-      <ul>
-        {personsFiltered.map(i => (
-          <li key={i.id}>{i.name} - {i.number}  </li>
-
-        ))}
-      </ul>
-
-
+      <List personsFiltered={personsFiltered} />
 
     </div>
   )
